@@ -10,7 +10,7 @@
              
              <label> Choose a Date</label>
             <datepicker v-model="date" placeholder="Select a date"></datepicker>
-         <button v-on:click.prevent="post">Create new business</button>
+         
            
       
         
