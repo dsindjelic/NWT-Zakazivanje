@@ -1,0 +1,140 @@
+<template>
+    <div id="add-business">
+        
+        <form v-if="!submitted">
+            <h2> Unesite svoje podatke: </h2>
+
+            <label > Korisnicko ime:</label>
+            <input type="text" name="busername" v-model="business.busername" @after-leave="checkbsrnm"/>
+             <label > Lozinka:</label>
+            <input name="bpassword" type="password" v-model="business.bpsw"/>
+             <label > Ponovite lozinku:</label>
+            <input name="brepassword" type="password" v-model="business.brepsw"/>
+             <label > Ime firme:</label>
+            <input type="text" v-model="business.bname"/>
+            <label > Delatnost:</label>
+            <select v-model="business.activity">
+            <option v-for="delatnost in delatnosti" v-bind:key="delatnost">{{delatnost}}</option>
+             </select>
+            <label > Telefon:</label>
+            <input type="text" v-model="business.btel"/>
+            <label > Elektronska posta:</label>            
+            <input type="text" v-model="business.bmail"/>
+            <label> Web sajt:</label>
+            <input type="text" v-model="business.site"/>
+            
+            <button v-on:click.prevent="post">Napravi nalog</button>
+        </form >
+        
+    <div id="preview" v-if="submitted">
+        <div>
+      <h3>Kreirali ste vas nalog!</h3>
+    </div>
+        
+        <p> Korisnicko ime: {{business.busername}}</p>
+        <p> Naziv: {{business.bname}}</p>
+        <p> Delatnost: {{business.activity}}</p>
+        <p> Address: {{business.baddress}}</p>
+        <p> Telefon: {{business.btel}}</p>
+        <p> Elektronska posta: {{business.bmail}}</p>
+
+
+        <button v-on:click="to-home">Go to home</button>
+    </div>
+    </div>
+</template>
+
+<script>
+export default {
+    data(){
+        return{
+            business:{
+                busername:'',
+                bpsw:'',
+                brepsw:'',
+                activity:'',
+                bname:'',
+                baddress:'',
+                btel:'',
+                bmail:'',
+                site:''
+            },
+            delatnosti:['Frizerski salon', 'Fitnes','Zubar'],
+            submitted:false,
+        }
+    },
+    methods:{
+        post:function(){
+      this.$http.post('https://scheduling-nwt.firebaseio.com//business.json',this.business).then(function(data){
+        console.log(data)
+        this.submitted=true
+      })
+    },
+    checkbsrnm:function(){
+        this.act.forEach(element => {
+            if(element.busername==business.busername){
+                alert("Takvo korisnicko ime vec postoji! Pokusajte neko drugo.");
+                
+            }
+        });
+    }
+
+    },
+    created() {
+        this.$http.get('https://scheduling-nwt.firebaseio.com//business.json').then(function(data){
+            console.log(data);
+            this.activities=data.body;
+            //JSON.parse(data.body).forEach(element => {
+              // if(Object.keys(element).hasOwnProperty('activity')){
+                    this.act=data.body
+               // }
+           // });
+    
+            console.log(this.act);
+
+        })
+
+        
+    },
+}
+</script>
+
+<style scoped>
+#add-business *{
+    box-sizing: border-box;
+}
+#add-business{
+    margin: 20px auto;
+    max-width: 500px;
+}
+
+label{
+    text-align: right;
+    float: left;
+    display: block;
+    margin-right: 10px;
+}
+input, textarea, select{
+    display: block;
+    width: 100%;
+    padding: 8px;
+    background: beige;
+}
+#preview{
+    padding: 10px 20px;
+    border: 1px dotted #ccc;
+    margin: 30px 0;
+}
+h3{
+    margin-top: 10px;
+    color: lightskyblue;
+}
+#checkboxes input{
+display: inline-block;
+margin-right: 10px;
+}
+#checkboxes label{
+  display:inline-block;
+  margin-right:10px;
+}
+</style>
