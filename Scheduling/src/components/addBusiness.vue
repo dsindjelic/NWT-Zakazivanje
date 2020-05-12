@@ -5,11 +5,11 @@
             <h2> Unesite svoje podatke: </h2>
 
             <label > Korisnicko ime:</label>
-            <input type="text" name="busername" v-model="business.busername" @mouseleave="checkbsrnm"/>
+            <input type="text" name="busername" v-model.lazy="business.busername" @change ="checkbsrnm"/>
              <label > Lozinka:</label>
-            <input name="bpassword" type="password" v-model="business.bpsw"/>
+            <input name="bpassword" type="password" v-model="business.bpsw" />
              <label > Ponovite lozinku:</label>
-            <input name="brepassword" type="password" v-model="business.brepsw"/>
+            <input name="brepassword" type="password" v-model.lazy="business.brepsw" @change="pswrds"/>
              <label > Ime firme:</label>
             <input type="text" v-model="business.bname"/>
             <label > Delatnost:</label>
@@ -54,7 +54,7 @@ export default {
     directives: { focus: focus },
     data(){
         return{
-            focused: false,
+           
             activities:{
                 busername:'',
                 bpsw:'',
@@ -80,8 +80,10 @@ export default {
             },
             delatnosti:['Frizerski salon', 'Fitnes','Zubar'],
             submitted:false,
-            nanaslovnu:''
+            nanaslovnu:'',
+            act:[]
         }
+        
         
     },
     methods:{
@@ -92,25 +94,42 @@ export default {
       })
     },
     checkbsrnm:function(){
-        for(let i=0;i<this.activities.length;i++){
-            if(this.activities.busername==this.business.busername){
-                alert()
+        console.log(Object.keys(this.act).length)
+        for(var prop in this.act){
+            console.log(this.act[prop].busername)
+            if(this.act[prop].busername===this.business.busername){
+                alert('Navedeno korisnicko ime vec postoji. Pokusajte ponovo sa nekim drugim.');
             }
         }
+       
+        //for(let i=0;i<this.act.length;i++){
+            //Object.keys(this.act).forEach(function(item){if(item.busername==this.business.busername){
+               // alert('Ima')
+          //  }
+            //if(this.act[keys[i]].busername===this.business.busername){
+               // alert();
+              // console.log("postoji"+this.activities.busername)
+               // console.log(i+'.'+this.activities.busername)
+           // }
+          //  })
+        
     },
     tohome:function(){
       // this.nanaslovnu= '<router-link to="/schedulingclient"></router-link>'
       $router.push('/schedulingclient', schedulingClient)
+    },
+    pswrds:function(){
+        if(this.business.bpsw!=this.business.brepsw){
+            alert("Lozinke se ne slazu, pokusajte ponovo!")
+        }
     }
 
     },
     created() {
         this.$http.get('https://scheduling-nwt.firebaseio.com//business.json').then(function(data){
             console.log(data);
-            this.activities=data.body;
-            
-                    this.act=data.body
-                
+            //this.activities=data.body;            
+            this.act=data.body;                
             console.log(this.act);
 
         })
