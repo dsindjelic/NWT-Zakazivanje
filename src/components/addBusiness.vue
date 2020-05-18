@@ -5,11 +5,11 @@
             <h2> Unesite svoje podatke: </h2>
 
             <label > Korisnicko ime:</label>
-            <input type="text" name="busername" v-model="business.busername" @after-leave="checkbsrnm"/>
+            <input type="text" name="busername" v-model.lazy="business.busername" @change ="checkbsrnm"/>
              <label > Lozinka:</label>
-            <input name="bpassword" type="password" v-model="business.bpsw"/>
+            <input name="bpassword" type="password" v-model="business.bpsw" />
              <label > Ponovite lozinku:</label>
-            <input name="brepassword" type="password" v-model="business.brepsw"/>
+            <input name="brepassword" type="password" v-model.lazy="business.brepsw" @change="pswrds"/>
              <label > Ime firme:</label>
             <input type="text" v-model="business.bname"/>
             <label > Delatnost:</label>
@@ -24,6 +24,7 @@
             <input type="text" v-model="business.site"/>
             
             <button v-on:click.prevent="post">Napravi nalog</button>
+            <p>{{nanaslovnu}}</p>
         </form >
         
     <div id="preview" v-if="submitted">
@@ -39,15 +40,33 @@
         <p> Elektronska posta: {{business.bmail}}</p>
 
 
-        <button v-on:click="to-home">Go to home</button>
+        <router-link to="/schedulingclient">
+        <p>Na pocetnu </p >
+        </router-link> 
     </div>
     </div>
 </template>
 
 <script>
+import { focus } from 'vue-focus';
+
 export default {
+    directives: { focus: focus },
     data(){
         return{
+           
+            activities:{
+                busername:'',
+                bpsw:'',
+                brepsw:'',
+                activity:'',
+                bname:'',
+                baddress:'',
+                btel:'',
+                bmail:'',
+                site:''
+
+            },
             business:{
                 busername:'',
                 bpsw:'',
@@ -61,7 +80,11 @@ export default {
             },
             delatnosti:['Frizerski salon', 'Fitnes','Zubar'],
             submitted:false,
+            nanaslovnu:'',
+            act:[]
         }
+        
+        
     },
     methods:{
         post:function(){
@@ -69,27 +92,44 @@ export default {
         console.log(data)
         this.submitted=true
       })
-    },
-    checkbsrnm:function(){
-        this.act.forEach(element => {
-            if(element.busername==business.busername){
-                alert("Takvo korisnicko ime vec postoji! Pokusajte neko drugo.");
-                
+    },/*
+
+    checkbsrnm:function(){         console.log(Object.keys(this.act).length)
+        for(var prop in this.act){
+            console.log(this.act[prop].busername)
+            if(this.act[prop].busername===this.business.busername){
+                alert('Navedeno korisnicko ime vec postoji. Pokusajte ponovo sa nekim drugim.');
             }
-        });
+        }
+       
+        //for(let i=0;i<this.act.length;i++){
+            //Object.keys(this.act).forEach(function(item){if(item.busername==this.business.busername){
+               // alert('Ima')
+          //  }
+            //if(this.act[keys[i]].busername===this.business.busername){
+               // alert();
+              // console.log("postoji"+this.activities.busername)
+               // console.log(i+'.'+this.activities.busername)
+           // }
+          //  })
+        
+    },
+    */
+    tohome:function(){
+      // this.nanaslovnu= '<router-link to="/schedulingclient"></router-link>'
+      $router.push('/schedulingclient', schedulingClient)
+    },//    pswrds:function(){
+        if(this.business.bpsw!=this.business.brepsw){
+            alert("Lozinke se ne slazu, pokusajte ponovo!")
+        }
     }
 
     },
     created() {
         this.$http.get('https://scheduling-nwt.firebaseio.com//business.json').then(function(data){
             console.log(data);
-            this.activities=data.body;
-            //JSON.parse(data.body).forEach(element => {
-              // if(Object.keys(element).hasOwnProperty('activity')){
-                    this.act=data.body
-               // }
-           // });
-    
+            //this.activities=data.body;            
+            this.act=data.body;                
             console.log(this.act);
 
         })

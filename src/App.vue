@@ -14,17 +14,11 @@
 
 <script>
 import header from './components/header.vue'
-import addBlog from './components/addBlog.vue'
-import showBlogs from './components/showBlogs.vue'
-import listBlogs from './components/listBlogs.vue'
 import addUser from './components/addUser.vue'
 import addBusiness from './components/addBusiness.vue'
 import scedulingClient from './components/schedulingClient.vue'
 export default {
   components:{
-    'add-blog':addBlog,
-    'show-blogs':showBlogs,
-    'list-blogs':listBlogs,
     'app-header':header,
     'add-user':addUser,
     'scheduling-client':scedulingClient
