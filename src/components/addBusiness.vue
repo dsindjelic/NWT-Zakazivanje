@@ -114,7 +114,7 @@ export default {
           //  })
         
     },
-    */
+    
     tohome:function(){
       // this.nanaslovnu= '<router-link to="/schedulingclient"></router-link>'
       $router.push('/schedulingclient', schedulingClient)
