@@ -91,7 +91,9 @@ export default {
           console.log(data);
           this.submitted = true;
         });
-    } /*
+    },
+    
+    /*
     checkbsrnm:function(){
         console.log(Object.keys(this.act).length)
         for(var prop in this.act){
@@ -100,7 +102,7 @@ export default {
                 alert('Navedeno korisnicko ime vec postoji. Pokusajte ponovo sa nekim drugim.');
             }
         }
-       */,
+       */
     //for(let i=0;i<this.act.length;i++){
     //Object.keys(this.act).forEach(function(item){if(item.busername==this.business.busername){
     // alert('Ima')
@@ -112,10 +114,10 @@ export default {
     // }
     //  })
 
-    tohome: function() {
+   // tohome: function() {
       // this.nanaslovnu= '<router-link to="/schedulingclient"></router-link>'
-      $router.push("/schedulingclient", schedulingClient);
-    },
+     // $router.push("/schedulingclient", schedulingClient);
+    //},
     pswrds: function() {
       if (this.business.bpsw != this.business.brepsw) {
         alert("Lozinke se ne slazu, pokusajte ponovo!");

@@ -14,14 +14,15 @@
 
 <script>
 import header from './components/header.vue'
-import addUser from './components/addUser.vue'
-import addBusiness from './components/addBusiness.vue'
-import scedulingClient from './components/schedulingClient.vue'
+//import addUser from './components/addUser.vue'
+//import addBusiness from './components/addBusiness.vue'
+//import scedulingClient from './components/schedulingClient.vue'
 export default {
   components:{    
     'app-header':header,
-    'add-user':addUser,
-    'scheduling-client':scedulingClient
+    //'add-user':addUser,
+   // 'add-business':addBusiness,
+   // 'scheduling-client':scedulingClient
   },
   
   data () {

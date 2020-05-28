@@ -7,7 +7,7 @@
             <label for="username"> Korisnicko ime:</label>
             <input type="text" name="username" v-model="user.username"/>
              <label > Lozinka:</label>
-            <input type="password" v-model="user.psw"/>
+            <input type="password" v-model.lazy="user.psw" @change="pswrds"/>
              <label > Potvrdi lozinku:</label>
             <input type="password" v-model="user.repsw"/>
              <label > Ime:</label>
@@ -61,8 +61,14 @@ export default {
         console.log(data)
         this.submitted=true
       })
+    },
+     pswrds: function() {
+      if (this.business.bpsw != this.business.brepsw) {
+        alert("Lozinke se ne slazu, pokusajte ponovo!");
+      }
     }
-    }
+    },
+
 }
 </script>
 
