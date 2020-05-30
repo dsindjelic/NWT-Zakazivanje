@@ -13,23 +13,17 @@
       
         <h3>Odaberite datum </h3>
         <p>
-        <date-picker
-          :value="date"
-          
-          @change="updateDate"
-          placeholder="Odaberite datum"
-          :lang="lang"
-          
-          :not-before="new Date()"
-        ></date-picker>
+        <date-picker @change="updateDate" :value="date" lang="sr" :first-day-of-week="1"
+                     :not-before="new Date()" :format="dateFormat"></date-picker>
       </p>  
         
     </form>
-    <h2 v-if="date!=null" class="title"> Datum {{date | dateParse('YYYY-MM-DD') | dateFormat('dd MM YYYY')}} </h2>
+    <h2 v-if="date!=''" > Datum {{date| formattingDate }} </h2>
   </div>
 </template>
 
 <script>
+//import Vue from '../main'
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 import 'vue2-datepicker/locale/sr';
@@ -40,6 +34,7 @@ import 'vue2-datepicker/locale/sr';
 
 //Vue.component('calendar', Calendar)
 //Vue.component('date-picker', DatePicker)
+
 export default {
   components: {
     //'datepicker': Datepicker,
@@ -49,16 +44,16 @@ export default {
   },
 
   data() {
-      let date = new Date();
-            date.setHours(12, 0, 0);
+      
     return {
+      dateFormat : 'DD-MM-YYYY',
         lang: {
           formatLocale: {
             firstDayOfWeek: 1,
           },
           monthBeforeYear: false,
         },
-      //date: "",
+      date: "",
       
       //  id: this.$route.params.id,
       business: {},
@@ -82,13 +77,11 @@ export default {
   },
   methods: {
       updateDate: function (date) {
-                let noviDatum = new Date(date);
-                noviDatum.setHours(12);
-                
-                
-              return  this.date = noviDatum.toDateString();
-                
-      },
+                let newDate = new Date(date);
+                newDate.setHours(12);
+                this.date = newDate;
+                console.log(date)
+            }
     // removeSpace:function(a){
     //  b=a.filter(function(){
     //  return a.activity
@@ -98,26 +91,7 @@ export default {
     // }
   },
   computed:{
-         calendar: function () {
-                let calendar = [];
-                this.schedule.forEach(hour => {
-                    let date = new Date(this.date.toDateString() + ' 12:00:00');
-                    date.setHours(hour.hour, hour.minutes, 0);
-
-                    if (date >= new Date()) {
-                        let reservation = this.reservations.filter(x => {
-                            return x.date.seconds === (date.getTime() / 1000)
-                        });
-                        calendar.push({
-                            hour: hour.hour,
-                            minutes: hour.minutes,
-                            isBooked: reservation.length === 1
-                        });
-                    }
-
-                });
-                return calendar;
-            }
+        
 
   },
   created() {

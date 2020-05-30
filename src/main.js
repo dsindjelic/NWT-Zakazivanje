@@ -5,6 +5,7 @@ import Routes from './routes'
 import VueResource from 'vue-resource'
 import store from './store'
 import {firestorePlugin} from 'vuefire'
+import moment from 'moment'
 
 
 Vue.use(VueResource)
@@ -14,6 +15,15 @@ const router=new VueRouter({
   mode:'history',
   routes:Routes
 })
+//Filteri
+Vue.filter('formattingDate', function(value) {
+  if (value) {
+    return moment(String(value)).format('DD-MM-YYYY ')
+  }
+})
+
+
+
 
 new Vue({
   el: '#app',

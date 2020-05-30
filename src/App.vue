@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <h2>Welcome to Scheduling App, sign in please</h2>
+    <!--h2>Welcome to Scheduling App, sign in please</h2>
     <input type="text"  v-model="user.name"/>
     <input name="inpUsername" type="password" value="password"/>
     <button name="btnSubmit" title="submit" v-on:click="welcome">Welcome</button>
     <button name="btnSubmit2" title="submit" v-on:click="submit">Submit</button>
-    <h3 > {{por}}</h3>
+    <h3 > {{por}}</h3>-->
     
     <app-header></app-header>
     <router-view></router-view>
