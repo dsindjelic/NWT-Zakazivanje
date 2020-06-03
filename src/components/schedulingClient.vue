@@ -8,17 +8,35 @@
           v-bind:key="activiti.bname"
           class="scheduling-client"
         >{{activiti.bname}}</option>
-      </select>
-
+      </select> 
+         </form>
       
-        <h3>Odaberite datum </h3>
+      <div>
+        <h3>Odaberite datum</h3>
         <p>
-        <date-picker @change="updateDate" :value="date" lang="sr" :first-day-of-week="1"
-                     :not-before="new Date()" :format="dateFormat"></date-picker>
-      </p>  
-        
-    </form>
-    <h2 v-if="date!=''" > Datum {{date| formattingDate }} </h2>
+          <date-picker
+            @change="updateDate"
+            :value="date"
+            lang="sr"
+            :first-day-of-week="1"
+            :not-before="new Date()"
+            :format="dateFormat"
+          ></date-picker>
+        </p>
+
+        <h2 v-if="date!=''">Datum {{date| formattingDate }}</h2>
+      </div>
+      <br/>
+
+      <form> 
+    <div id="satnice">
+      <ul>
+        <li v-for="hour in hours" @click="doBooking" v-bind:key="hour.hour">
+          <h2>{{ hour.hour }}:{{hour.minutes}}</h2>
+        </li>
+      </ul>
+    </div>
+      </form>
   </div>
 </template>
 
@@ -26,7 +44,8 @@
 //import Vue from '../main'
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
-import 'vue2-datepicker/locale/sr';
+import "vue2-datepicker/locale/sr";
+//import schedule from '../config/schedule';
 //import Datepicker from 'vuejs-datepicker';
 
 //import Calendar from 'v-calendar/lib/components/calendar.umd'
@@ -38,23 +57,46 @@ import 'vue2-datepicker/locale/sr';
 export default {
   components: {
     //'datepicker': Datepicker,
-     DatePicker
+    DatePicker
     //Calendar,
     //DatePicker
   },
 
   data() {
-      
     return {
-      dateFormat : 'DD-MM-YYYY',
-        lang: {
-          formatLocale: {
-            firstDayOfWeek: 1,
-          },
-          monthBeforeYear: false,
+      hours: [
+        { hour: 9, minutes: "00" },
+        { hour: 9, minutes: "30" },
+        { hour: 10, minutes: "00" },
+        { hour: 10, minutes: "30" },
+        { hour: 11, minutes: "00" },
+        { hour: 11, minutes: "30" },
+        { hour: 12, minutes: "00" },
+        { hour: 12, minutes: "30" },
+        { hour: 13, minutes: "00" },
+        { hour: 13, minutes: "30" },
+        { hour: 16, minutes: "30" },
+        { hour: 17, minutes: "00" },
+        { hour: 17, minutes: "30" },
+        { hour: 18, minutes: "00" },
+        { hour: 18, minutes: "30" },
+        { hour: 19, minutes: "00" },
+        { hour: 19, minutes: "30" },
+        { hour: 20, minutes: "00" },
+        { hour: 20, minutes: "30" }
+      ],
+      // Nedelja 0, Ponedeljak 1, Utorak 2, Sreda 3, Cetvrtak 4, Petak 5, Subota 6
+      openingDays: [1, 2, 3, 4, 5],
+
+      dateFormat: "DD-MM-YYYY",
+      lang: {
+        formatLocale: {
+          firstDayOfWeek: 1
         },
+        monthBeforeYear: false
+      },
       date: "",
-      
+
       //  id: this.$route.params.id,
       business: {},
       activities: [],
@@ -76,12 +118,15 @@ export default {
     };
   },
   methods: {
-      updateDate: function (date) {
-                let newDate = new Date(date);
-                newDate.setHours(12);
-                this.date = newDate;
-                console.log(date)
-            }
+    updateDate: function(date) {
+      let newDate = new Date(date);
+      newDate.setHours(12);
+      this.date = newDate;
+      console.log(date);
+    },
+    doBooking:function(){
+
+    }
     // removeSpace:function(a){
     //  b=a.filter(function(){
     //  return a.activity
@@ -90,10 +135,7 @@ export default {
     //return moment(date).format('MMMM Do YYYY');
     // }
   },
-  computed:{
-        
-
-  },
+  computed: {},
   created() {
     this.$http
       .get("https://scheduling-nwt.firebaseio.com//business.json")
@@ -155,5 +197,28 @@ h3 {
 #checkboxes label {
   display: inline-block;
   margin-right: 10px;
+}
+ul {
+  display: flex;
+  flex-flow: row wrap;
+  align-content: space-between;
+  justify-content: space-between;
+
+  padding: 0;
+  
+}
+li {
+  
+  width: 100px;
+  height: 100px;
+  flex-grow: 1;
+  flex-basis: 10%;
+  background-color: lightgreen;
+  text-align: center;
+  padding: 10px;
+  border: 2px solid black;
+  margin: 10px;
+  cursor: pointer;
+  
 }
 </style>

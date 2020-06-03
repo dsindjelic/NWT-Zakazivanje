@@ -20,6 +20,6 @@ export default {
         {hour: 20, minutes: 0},
         {hour: 20, minutes: 30}
     ],
-    // SUNDAY 0, MONDAY 1, TUESDAY 2, WEDNESDAY 3, THURSDAY 4, FRIDAY 5, SATURDAY 6
+    // Nedelja 0, Ponedeljak 1, Utorak 2, Sreda 3, Cetvrtak 4, Petak 5, Subota 6
     openingDays: [1, 2, 3, 4, 5]
 }
