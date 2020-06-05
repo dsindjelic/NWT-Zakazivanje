@@ -8,35 +8,39 @@
           v-bind:key="activiti.bname"
           class="scheduling-client"
         >{{activiti.bname}}</option>
-      </select> 
-         </form>
-      
-      <div>
-        <h3>Odaberite datum</h3>
-        <p>
-          <date-picker
-            @change="updateDate"
-            :value="date"
-            lang="sr"
-            :first-day-of-week="1"
-            :not-before="new Date()"
-            :format="dateFormat"
-          ></date-picker>
-        </p>
+      </select>
+    </form>
 
-        <h2 v-if="date!=''">Datum {{date| formattingDate }}</h2>
-      </div>
-      <br/>
+    <div>
+      <h3>Odaberite datum</h3>
+      <p>
+        <date-picker
+          @change="updateDate"
+          :value="date"
+          lang="sr"
+          :first-day-of-week="1"
+          :not-before="new Date()"
+          :format="dateFormat"
+        ></date-picker>
+      </p>
 
-      <form> 
-    <div id="satnice">
-      <ul>
-        <li v-for="hour in hours" @click="doBooking" v-bind:key="hour.hour">
-          <h2>{{ hour.hour }}:{{hour.minutes}}</h2>
-        </li>
-      </ul>
+      <h2 v-if="date!=''">Datum {{date| formattingDate }}</h2>
     </div>
-      </form>
+    <br />
+
+    <form>
+      <div v-if="isOpenDate" id="satnice">
+        <ul>
+          <li v-for="hour in hours" @click="doBooking" v-bind:key="hour.hour">
+            <h2>{{ hour.hour }}:{{hour.minutes}}</h2>
+          </li>
+        </ul>
+      </div>
+      <div v-else>
+                <br><br>
+                <h1  class="notOpenDay">Zao nam je, {{date| formattingDate}} je neradni. Pokusajte neki drugi dan</h1>
+            </div>
+    </form>
   </div>
 </template>
 
@@ -80,13 +84,11 @@ export default {
         { hour: 17, minutes: "30" },
         { hour: 18, minutes: "00" },
         { hour: 18, minutes: "30" },
-        { hour: 19, minutes: "00" },
-        { hour: 19, minutes: "30" },
-        { hour: 20, minutes: "00" },
-        { hour: 20, minutes: "30" }
+        { hour: 19, minutes: "00" }
       ],
       // Nedelja 0, Ponedeljak 1, Utorak 2, Sreda 3, Cetvrtak 4, Petak 5, Subota 6
-      openingDays: [1, 2, 3, 4, 5],
+      openDays: [1, 2, 3, 4, 5],
+    
 
       dateFormat: "DD-MM-YYYY",
       lang: {
@@ -95,12 +97,19 @@ export default {
         },
         monthBeforeYear: false
       },
-      date: "",
+      date: new Date(),
 
       //  id: this.$route.params.id,
       business: {},
       activities: [],
       act: [],
+      newBooking: {
+        name: "",
+        phone: "",
+        fixture: {}
+      },
+      isBooking: false,
+      showBookingModal: false,
       //nameBusiness:[],
 
       //{
@@ -124,9 +133,7 @@ export default {
       this.date = newDate;
       console.log(date);
     },
-    doBooking:function(){
-
-    }
+    doBooking: function() {}
     // removeSpace:function(a){
     //  b=a.filter(function(){
     //  return a.activity
@@ -135,7 +142,14 @@ export default {
     //return moment(date).format('MMMM Do YYYY');
     // }
   },
-  computed: {},
+  computed: {
+    isOpenDate() {
+              
+               console.log('dan u nedelji '+new Date(this.date).getDay())
+               //return 1 
+               return this.openDays.includes(new Date(this.date).getDay());
+  },
+  },
   created() {
     this.$http
       .get("https://scheduling-nwt.firebaseio.com//business.json")
@@ -198,6 +212,9 @@ h3 {
   display: inline-block;
   margin-right: 10px;
 }
+#satnice {
+  box-sizing: border-box;
+}
 ul {
   display: flex;
   flex-flow: row wrap;
@@ -205,11 +222,10 @@ ul {
   justify-content: space-between;
 
   padding: 0;
-  
 }
 li {
-  
-  width: 100px;
+  border-radius: 10px;
+  width: 150px;
   height: 100px;
   flex-grow: 1;
   flex-basis: 10%;
@@ -217,8 +233,14 @@ li {
   text-align: center;
   padding: 10px;
   border: 2px solid black;
+  box-shadow: 0px 0px 5px  gray;
   margin: 10px;
   cursor: pointer;
-  
+}
+.isBooked {
+  background-color: lightcoral;
+}
+.notOpenDay{
+  color: red;
 }
 </style>
