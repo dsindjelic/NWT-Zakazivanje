@@ -1,4 +1,6 @@
 const functions = require('firebase-functions');
 
 //http primer 1
-exports.randomNumber = functions.https.onRequest()
+exports.randomNumber = functions.https.onRequest(()=>{
+
+})
