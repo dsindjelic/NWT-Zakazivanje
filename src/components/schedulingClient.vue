@@ -41,6 +41,7 @@
                 <h1  class="notOpenDay">Zao nam je, {{date| formattingDate}} je neradni. Pokusajte neki drugi dan</h1>
             </div>
     </form>
+    <button class="call">Say Hello</button>
   </div>
 </template>
 
