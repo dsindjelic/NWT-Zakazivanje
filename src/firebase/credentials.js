@@ -1,10 +1,17 @@
-export default {
-    config: {
-        apiKey: process.env.VUE_APP_FIREBASE_API_KEY,
-        authDomain: process.env.VUE_APP_FIREBASE_AUTH_DOMAIN,
-        storageBucket: process.env.VUE_APP_FIREBASE_STORAGE_BUCKET,
-        databaseURL: process.env.VUE_APP_FIREBASE_DB_URL,
-        projectId: process.env.VUE_APP_FIREBASE_PROJECT_ID,
-        messagingSenderId: process.env.VUE_APP_FIREBASE_MESSAGING_SENDER_ID
+import firebase from 'firebase'
+//import firestore from 'firebase/firestore'
+
+var firebaseConfig = {
+        apiKey: "AIzaSyArN43w0EpIRfedtFETJjXHxi01CLIo-OA",
+        authDomain: "scheduling-nwt.firebaseapp.com",
+        databaseURL: "https://scheduling-nwt.firebaseio.com",
+        projectId: "scheduling-nwt",
+        storageBucket: "scheduling-nwt.appspot.com",
+        messagingSenderId: "635937544798",
+        appId: "1:635937544798:web:643efb8d9041c624d1b2cf",
+        measurementId: "G-N0G8W7XQPH"
     }
-}
+
+const firebaseApp = firebase.initializeApp(firebaseConfig)
+firebaseApp.firestore().settings({timestampsInSnapshots: true})
+export default firebaseApp.firestore()
