@@ -32,7 +32,7 @@
       <div v-if="isOpenDate" id="satnice">
         <ul>
           <li  v-for="hour in hours" @click.prevent="doBooking(hour)" v-bind:key="hour.index" :class="{'isBooked':hour.booked, 'free':!hour.booked}">
-            <h2>{{ hour.hour }}:{{hour.minutes}}</h2>
+            <h2>{{ hour.hour }}</h2>
           </li>
         </ul>
       </div>
