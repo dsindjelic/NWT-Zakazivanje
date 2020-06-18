@@ -31,7 +31,7 @@
     <form>
       <div v-if="isOpenDate" id="satnice">
         <ul>
-          <li v-for="hour in hours" @click="doBooking" v-bind:key="hour.hour">
+          <li  v-for="hour in hours" @click.prevent="doBooking(hour)" v-bind:key="hour.index" :class="{'isBooked':hour.booked, 'free':!hour.booked}">
             <h2>{{ hour.hour }}:{{hour.minutes}}</h2>
           </li>
         </ul>
@@ -53,7 +53,7 @@ import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 import "vue2-datepicker/locale/sr";
 import db from '../firebase/credentials'
-//import schedule from '../config/schedule';
+
 export default {
   components: {
     DatePicker
@@ -63,27 +63,28 @@ export default {
   data() {
     return {
       hours: [
-        { hour: 9, minutes: "00" },
-        { hour: 9, minutes: "30" },
-        { hour: 10, minutes: "00" },
-        { hour: 10, minutes: "30" },
-        { hour: 11, minutes: "00" },
-        { hour: 11, minutes: "30" },
-        { hour: 12, minutes: "00" },
-        { hour: 12, minutes: "30" },
-        { hour: 13, minutes: "00" },
-        { hour: 13, minutes: "30" },
-        { hour: 14, minutes: "00" },
-        { hour: 14, minutes: "30" },
-        { hour: 16, minutes: "30" },
-        { hour: 17, minutes: "00" },
-        { hour: 17, minutes: "30" },
-        { hour: 18, minutes: "00" },      
+        { hour: "9:00", booked:false},
+        { hour: "9:30" ,booked:false},
+        { hour: "10:00" ,booked:false},
+        { hour: "10:30" ,booked:false},
+        { hour: "11:00",booked:false},
+        { hour: "11:30" ,booked:false},
+        { hour: "12:00" ,booked:false},
+        { hour: "12:30",booked:true},
+        { hour: "13:00",booked:false },
+        { hour: "13:30",booked:false },
+        { hour: "14:00",booked:false },
+        { hour: "14:30",booked:false },
+        { hour: "16:30",booked:false },
+        { hour: "17:00",booked:false },
+        { hour: "17:30",booked:false },
+        { hour: "18:00",booked:false },      
       ],
       // Nedelja 0, Ponedeljak 1, Utorak 2, Sreda 3, Cetvrtak 4, Petak 5, Subota 6
       openDays: [1, 2, 3, 4, 5],
       schedulings:[],
-    
+
+      booked:false,    
 
       dateFormat: "DD-MM-YYYY",
       lang: {
@@ -95,7 +96,7 @@ export default {
       date: new Date(),
 
       //  id: this.$route.params.id,
-      business: {},
+      bussines: {},
       activities: [],
       act: [],
       newBooking: {
@@ -128,7 +129,30 @@ export default {
       this.date = newDate;
       console.log(date);
     },
-    doBooking: function() {}
+    doBooking: function(ind) {
+      if(ind.booked){
+        alert('Zao nam je, termin je zakazan!')
+      }else{     
+       let bookingDate=this.date.toDateString().slice(4)
+       //let index=e.target
+    
+       console.log(ind.hour,bookingDate,this.booked)
+       db.collection('scheduling').add({
+        date: bookingDate,
+        time: ind.hour,
+        user:'bane',
+        business: "Pera frizer"
+      }).then(
+        console.log(this.date,ind.hour, this.user, this.business)
+      )
+      .catch(err=>{
+        console.log(err)
+      })
+       return ind.booked=true
+        }
+     // 
+
+    }
     
   },
   computed: {
@@ -189,6 +213,7 @@ select {
   padding: 8px;
   background: beige;
 }
+
 #preview {
   padding: 10px 20px;
   border: 1px dotted #ccc;
@@ -223,7 +248,7 @@ li {
   height: 100px;
   flex-grow: 1;
   flex-basis: 10%;
-  background-color: lightgreen;
+  
   text-align: center;
   padding: 10px;
   border: 2px solid black;
@@ -231,8 +256,13 @@ li {
   margin: 10px;
   cursor: pointer;
 }
+.free{
+  background-color: lightgreen;
+
+}
 .isBooked {
   background-color: lightcoral;
+    cursor:not-allowed;
 }
 .notOpenDay {
   color: red;
