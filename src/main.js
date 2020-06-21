@@ -18,7 +18,7 @@ const router=new VueRouter({
 //Filteri
 Vue.filter('formattingDate', function(value) {
   if (value) {
-    return moment(String(value)).format('DD-MM-YYYY ')
+    return moment(String(value)).format('MMM DD YYYY')
   }
 })
 

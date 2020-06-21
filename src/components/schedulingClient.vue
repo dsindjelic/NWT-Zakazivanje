@@ -2,11 +2,12 @@
   <div id="scheduling-client">
     <h3>Izaberite salon:</h3>
     <form v-if="!submitted">
-      <select v-model="activity">
+      <select v-model="activity" @change="onChange($event)">
         <option
           v-for="activiti in act"
           v-bind:key="activiti.bname"
           class="scheduling-client"
+          
         >{{activiti.bname}}</option>
       </select>
     </form>
@@ -16,6 +17,7 @@
       <p>
         <date-picker
           @change="updateDate"
+         
           :value="date"
           lang="sr"
           :first-day-of-week="1"
@@ -48,7 +50,6 @@
 </template>
 
 <script>
-//import Vue from '../main'
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 import "vue2-datepicker/locale/sr";
@@ -70,7 +71,7 @@ export default {
         { hour: "11:00",booked:false},
         { hour: "11:30" ,booked:false},
         { hour: "12:00" ,booked:false},
-        { hour: "12:30",booked:true},
+        { hour: "12:30",booked:false},
         { hour: "13:00",booked:false },
         { hour: "13:30",booked:false },
         { hour: "14:00",booked:false },
@@ -83,10 +84,11 @@ export default {
       // Nedelja 0, Ponedeljak 1, Utorak 2, Sreda 3, Cetvrtak 4, Petak 5, Subota 6
       openDays: [1, 2, 3, 4, 5],
       schedulings:[],
-
+       sced:[],
+       selectedBusiness:'',
       booked:false,    
 
-      dateFormat: "DD-MM-YYYY",
+      dateFormat: "MMM DD  YYYY",
       lang: {
         formatLocale: {
           firstDayOfWeek: 1
@@ -102,7 +104,7 @@ export default {
       newBooking: {
         name: "",
         phone: "",
-        fixture: {}
+      
       },
       isBooking: false,
       showBookingModal: false,
@@ -125,9 +127,19 @@ export default {
   methods: {
     updateDate: function(date) {
       let newDate = new Date(date);
-      newDate.setHours(12);
       this.date = newDate;
-      console.log(date);
+      console.log(this.date);
+        let bydate=db.collection('scheduling').where('date','==',this.date.toDateString().slice(4))
+         bydate.get().then(snapshot=>{
+           snapshot.forEach(doc=>{
+             console.log(doc.data().time)
+             this.hours.forEach(element => {
+               if(element.hour==doc.data().time){
+                 element.booked=true
+               }
+             });
+           })
+         })
     },
     doBooking: function(ind) {
       if(ind.booked){
@@ -136,14 +148,14 @@ export default {
        let bookingDate=this.date.toDateString().slice(4)
        //let index=e.target
     
-       console.log(ind.hour,bookingDate,this.booked)
+       console.log(ind.hour,bookingDate,this.booked, this.selectedBusiness)
        db.collection('scheduling').add({
         date: bookingDate,
         time: ind.hour,
         user:'bane',
-        business: "Pera frizer"
+        business: this.selectedBusiness
       }).then(
-        console.log(this.date,ind.hour, this.user, this.business)
+        //console.log(this.date,ind.hour, this.user, this.selectedBusiness)
       )
       .catch(err=>{
         console.log(err)
@@ -152,8 +164,18 @@ export default {
         }
      // 
 
-    }
-    
+    },
+    onChange:function(event){
+      this.selectedBusiness=event.target.value
+        },
+       getFromFirestore:function(){
+         let bydate=db.collection('scheduling').where('date','==',this.date.toDateString().slice(4))
+         bydate.get().then(snapshot=>{
+           snapshot.forEach(doc=>{
+             console.log(doc)
+           })
+         })
+       } 
   },
   computed: {
     isOpenDate() {
@@ -163,7 +185,9 @@ export default {
                return this.openDays.includes(new Date(this.date).getDay());
   },
   },
+  
   created() {
+    
     this.$http
       .get("https://scheduling-nwt.firebaseio.com//business.json")
       .then(function(data) {
@@ -175,13 +199,18 @@ export default {
 
         console.log(this.act);
       });
- 
+  
   db.collection('scheduling').get()
   .then(snapshot=>{
     snapshot.forEach(doc=>{
-      console.log(doc.data(),doc.id)
+      this.sced.push(doc.data())
+      console.log(doc.data(),doc.id)      
     })
+     console.log(this.sced)
+
   })
+ 
+  
    },
 };
 </script>
