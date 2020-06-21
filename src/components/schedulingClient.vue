@@ -128,6 +128,11 @@ export default {
     updateDate: function(date) {
       let newDate = new Date(date);
       this.date = newDate;
+      this.hours.forEach(element => {
+               
+                 element.booked=false
+               
+             });
       console.log(this.date);
         let bydate=db.collection('scheduling').where('date','==',this.date.toDateString().slice(4))
          bydate.get().then(snapshot=>{
