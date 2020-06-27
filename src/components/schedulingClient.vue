@@ -33,7 +33,7 @@
     <form>
       <div v-if="isOpenDate" id="satnice">
         <ul>
-          <li  v-for="hour in hours" @click.prevent="doBooking(hour)" v-bind:key="hour.index" :class="{'isBooked':hour.booked, 'free':!hour.booked}">
+          <li  v-for="hour in hours" @click.prevent="makeModalForm(hour)" v-bind:key="hour.index" :class="{'isBooked':hour.booked, 'free':!hour.booked}">
             <h2>{{ hour.hour }}</h2>
           </li>
         </ul>
@@ -44,6 +44,24 @@
         <h1
           class="notOpenDay"
         >Zao nam je, {{date| formattingDate}} je neradni. Pokusajte neki drugi dan</h1>
+      </div>
+    </form>
+    <form v-if="showBookingModal" class="modal-form" >
+      <div >
+        <h2> Unesite svoje podatke</h2>
+        <!--label > Ime:</label>-->
+            <input type="text" name="username" placeholder="Ime" v-model="newBooking.name"/>
+            <!--label > Prezime:</label-->
+            <input type="text" placeholder="Prezime" v-model="newBooking.surname"/>
+            <!--label > telefon:</label-->
+            <input type="text" placeholder="broj telefona" v-model="newBooking.tel"/>
+           
+            
+            <button v-on:click.prevent="doBooking(selectedHour)">Zakazi termin</button>
+            <h2 v-if="booked"> Zakazali ste za {{date|formattingDate}} u {{this.selectedHour.hour}}</h2>
+             <button v-on:click="showBookingModal=false">Zatvori</button>
+        
+
       </div>
     </form>
   </div>
@@ -87,6 +105,7 @@ export default {
        sced:[],
        selectedBusiness:'',
       booked:false,    
+      selectedHour:'',
 
       dateFormat: "MMM DD  YYYY",
       lang: {
@@ -103,6 +122,9 @@ export default {
       act: [],
       newBooking: {
         name: "",
+        nickname:"",
+        psw:"",
+        repsw:"",
         phone: "",
       
       },
@@ -133,8 +155,11 @@ export default {
                  element.booked=false
                
              });
-      console.log(this.date);
-        let bydate=db.collection('scheduling').where('date','==',this.date.toDateString().slice(4))
+      console.log(this.date)
+       this.byDate()
+    },
+    byDate:function(){
+      let bydate=db.collection('scheduling').where('date','==',this.date.toDateString().slice(4))
          bydate.get().then(snapshot=>{
            snapshot.forEach(doc=>{
              console.log(doc.data().time)
@@ -146,10 +171,17 @@ export default {
            })
          })
     },
+    makeModalForm:function(hour){
+      this.showBookingModal=true  
+      this.selectedHour =hour
+      console.log("selected hour", this.selectedHour.hour)
+    },
     doBooking: function(ind) {
       if(ind.booked){
         alert('Zao nam je, termin je zakazan!')
-      }else{     
+      }else{ 
+          
+        console.log("showBooking",this.showBookingModal, "selected hour", ind.hour)
        let bookingDate=this.date.toDateString().slice(4)
        //let index=e.target
     
@@ -157,14 +189,17 @@ export default {
        db.collection('scheduling').add({
         date: bookingDate,
         time: ind.hour,
-        user:'bane',
+        name:this.newBooking.name,
+        surname:this.newBooking.surname,
+        tel:this.newBooking.tel,
         business: this.selectedBusiness
       }).then(
-        //console.log(this.date,ind.hour, this.user, this.selectedBusiness)
+        console.log(this.date,ind.hour, this.newBooking.name,this.newBooking.surname, this.selectedBusiness)
       )
       .catch(err=>{
         console.log(err)
       })
+      
        return ind.booked=true
         }
      // 
@@ -192,7 +227,7 @@ export default {
   },
   
   created() {
-    
+   
     this.$http
       .get("https://scheduling-nwt.firebaseio.com//business.json")
       .then(function(data) {
@@ -214,7 +249,7 @@ export default {
      console.log(this.sced)
 
   })
- 
+  this.byDate()  
   
    },
 };
@@ -301,4 +336,26 @@ li {
 .notOpenDay {
   color: red;
 }
+.modal-form {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(100, 200, 100, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    
+  }
+
+  .modal {
+    background: #FFFFFF;
+    box-shadow: 2px 2px 20px 1px;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+  }
+
 </style>
