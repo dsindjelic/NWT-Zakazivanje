@@ -1,17 +1,23 @@
 <template>
   <div id="scheduling-client">
-    <h3>Izaberite salon:</h3>
     <form v-if="!submitted">
-      <select v-model="activity" @change="onChange($event)">
-        <option
-          v-for="activiti in act"
-          v-bind:key="activiti.bname"
-          class="scheduling-client"
-          
-        >{{activiti.bname}}</option>
-      </select>
-    </form>
+    <h3>Izaberite delatnost</h3>
+    <select v-model="delatnost" @change="onChangeD($event)">
+    <option
+    v-for="del in delatnosti"
+    v-bind:key="del"
+    >{{del}}</option>
+    </select>
 
+    <h3>Izaberite salon:</h3>
+    
+      <select v-model="act" @change="onChange($event)" >
+        <option class="scheduling-client"
+          v-for="item in selectActivity" v-bind:key="item.index"            
+        >{{item.bname}}</option>
+      </select>
+    
+</form>
     <div>
       <h3>Odaberite datum</h3>
       <p>
@@ -60,8 +66,6 @@
             <button v-on:click.prevent="doBooking(selectedHour)">Zakazi termin</button>
             <h2 v-if="booked"> Zakazali ste za {{date|formattingDate}} u {{this.selectedHour.hour}}</h2>
              <button v-on:click="showBookingModal=false">Zatvori</button>
-        
-
       </div>
     </form>
   </div>
@@ -73,14 +77,16 @@ import "vue2-datepicker/index.css";
 import "vue2-datepicker/locale/sr";
 import db from '../firebase/credentials'
 
+
 export default {
   components: {
-    DatePicker
-   
+    DatePicker,  
   },
 
   data() {
     return {
+      delatnosti: ['Frizerski salon', 'Fitnes', 'Zubar'],
+      delatnost:"",
       hours: [
         { hour: "9:00", booked:false},
         { hour: "9:30" ,booked:false},
@@ -104,7 +110,7 @@ export default {
       schedulings:[],
        sced:[],
        selectedBusiness:'',
-      booked:false,    
+       booked:false,    
       selectedHour:'',
 
       dateFormat: "MMM DD  YYYY",
@@ -152,8 +158,7 @@ export default {
       this.date = newDate;
       this.hours.forEach(element => {
                
-                 element.booked=false
-               
+                 element.booked=false               
              });
       console.log(this.date)
        this.byDate()
@@ -208,7 +213,11 @@ export default {
     onChange:function(event){
       this.selectedBusiness=event.target.value
         },
-       getFromFirestore:function(){
+    onChangeD:function(event){
+      this.delatnost=event.target.value
+     console.log('delatnost je ', this.delatnost)
+        },
+    getFromFirestore:function(){
          let bydate=db.collection('scheduling').where('date','==',this.date.toDateString().slice(4))
          bydate.get().then(snapshot=>{
            snapshot.forEach(doc=>{
@@ -218,16 +227,22 @@ export default {
        } 
   },
   computed: {
-    isOpenDate() {
-              
-               console.log('dan u nedelji '+new Date(this.date).getDay())
-               //return 1 
-               return this.openDays.includes(new Date(this.date).getDay());
-  },
+    isOpenDate() {              
+          console.log('dan u nedelji '+new Date(this.date).getDay())
+          //return 1 
+          return this.openDays.includes(new Date(this.date).getDay());
+    },
+    selectActivity:function(){
+      console.log("delatnost=", this.delatnost)
+      if(this.delatnost!=''){
+        console.log(Object.values(this.activities))
+        return Object.values(this.activities).filter(i=>i.activity===this.delatnost)
+      }
+      return this.activities
+   }
   },
   
-  created() {
-   
+  created() {   
     this.$http
       .get("https://scheduling-nwt.firebaseio.com//business.json")
       .then(function(data) {
