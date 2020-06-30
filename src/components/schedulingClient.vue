@@ -174,7 +174,7 @@ export default {
          })
     },
     makeModalForm:function(hour){
-      if(ind.booked){
+      if(hour.booked){
         alert('Zao nam je, termin je zakazan!')
       }else{ 
       this.showBookingModal=true  
