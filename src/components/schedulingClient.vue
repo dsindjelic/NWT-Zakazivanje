@@ -60,8 +60,7 @@
             <!--label > Prezime:</label-->
             <input type="text" placeholder="Prezime" v-model="newBooking.surname"/>
             <!--label > telefon:</label-->
-            <input type="text" placeholder="broj telefona" v-model="newBooking.tel"/>
-           
+            <input type="text" placeholder="broj telefona" v-model="newBooking.tel"/>           
             
             <button v-on:click.prevent="doBooking(selectedHour)">Zakazi termin</button>
             <h2 v-if="booked"> Zakazali ste za {{date|formattingDate}} u {{this.selectedHour.hour}}</h2>
@@ -156,8 +155,7 @@ export default {
     updateDate: function(date) {
       let newDate = new Date(date);
       this.date = newDate;
-      this.hours.forEach(element => {
-               
+      this.hours.forEach(element => {               
                  element.booked=false               
              });
       console.log(this.date)
@@ -167,9 +165,9 @@ export default {
       let bydate=db.collection('scheduling').where('date','==',this.date.toDateString().slice(4))
          bydate.get().then(snapshot=>{
            snapshot.forEach(doc=>{
-             console.log(doc.data().time)
+             console.log(doc.data().time,doc.data().business,  this.selectedBusiness, "da li je to ista firma?")
              this.hours.forEach(element => {
-               if(element.hour==doc.data().time){
+               if((element.hour==doc.data().time)&&(doc.data().business==this.selectedBusiness)){
                  element.booked=true
                }
              });
@@ -212,6 +210,7 @@ export default {
     },
     onChange:function(event){
       this.selectedBusiness=event.target.value
+      console.log('izabrana firma je', this.selectedBusiness)
         },
     onChangeD:function(event){
       this.delatnost=event.target.value
