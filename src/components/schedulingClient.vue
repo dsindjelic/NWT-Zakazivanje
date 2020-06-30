@@ -165,8 +165,7 @@ export default {
       let bydate=db.collection('scheduling').where('date','==',this.date.toDateString().slice(4))
          bydate.get().then(snapshot=>{
            snapshot.forEach(doc=>{
-             console.log(doc.data().time,doc.data().business,  this.selectedBusiness, "da li je to ista firma?")
-             this.hours.forEach(element => {
+               this.hours.forEach(element => {
                if((element.hour==doc.data().time)&&(doc.data().business==this.selectedBusiness)){
                  element.booked=true
                }
@@ -175,9 +174,12 @@ export default {
          })
     },
     makeModalForm:function(hour){
+      if(ind.booked){
+        alert('Zao nam je, termin je zakazan!')
+      }else{ 
       this.showBookingModal=true  
       this.selectedHour =hour
-      console.log("selected hour", this.selectedHour.hour)
+      console.log("selected hour", this.selectedHour.hour)}
     },
     doBooking: function(ind) {
       if(ind.booked){
