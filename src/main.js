@@ -7,7 +7,7 @@ import store from './store'
 import {firestorePlugin} from 'vuefire'
 import moment from 'moment'
 
-
+Vue.config.productionTip = false
 Vue.use(VueResource)
 Vue.use(VueRouter)
 Vue.use(firestorePlugin);

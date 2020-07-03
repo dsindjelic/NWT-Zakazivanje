@@ -3,6 +3,7 @@
         <ul>
             <li><router-link to="/" exact>Pocetna</router-link></li>
             <li><router-link to="/schedulingclient">Zakazite termin</router-link></li>
+            <li><router-link to="/unschedulingclient">Otkazite termin</router-link></li>
             <li><router-link to="/adduser">Novi korisnik</router-link></li>
             <li><router-link to="/addbusiness">Novi salon</router-link></li>
         </ul>

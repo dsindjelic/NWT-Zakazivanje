@@ -74,7 +74,7 @@
 import DatePicker from "vue2-datepicker";
 import "vue2-datepicker/index.css";
 import "vue2-datepicker/locale/sr";
-import db from '../firebase/credentials'
+import db from '../firebase/credentials';
 
 
 export default {
@@ -135,21 +135,9 @@ export default {
       },
       isBooking: false,
       showBookingModal: false,
-      //nameBusiness:[],
-
-      //{
-      //     busername:'',
-      //    bpsw:'',
-      //  brepsw:'',
-      //activity:'',
-      //bn/ame:'',
-      //baddress:'',
-      //btel:'',
-      //bmail:''
-      //},
-      // activities:['Haircut', 'Fitness','Dentist'],
+      
       submitted: false
-    };
+    }
   },
   methods: {
     updateDate: function(date) {
@@ -157,7 +145,7 @@ export default {
       this.date = newDate;
       this.hours.forEach(element => {               
                  element.booked=false               
-             });
+             })
       console.log(this.date)
        this.byDate()
     },
@@ -169,7 +157,7 @@ export default {
                if((element.hour==doc.data().time)&&(doc.data().business==this.selectedBusiness)){
                  element.booked=true
                }
-             });
+             })
            })
          })
     },
@@ -188,7 +176,8 @@ export default {
           
         console.log("showBooking",this.showBookingModal, "selected hour", ind.hour)
        let bookingDate=this.date.toDateString().slice(4)
-       //let index=e.target
+       
+       //dodavanje kolekcije u firestore
     
        console.log(ind.hour,bookingDate,this.booked, this.selectedBusiness)
        db.collection('scheduling').add({
@@ -203,11 +192,10 @@ export default {
       )
       .catch(err=>{
         console.log(err)
-      })
-      
+      })      
        return ind.booked=true
         }
-     // 
+     
 
     },
     onChange:function(event){
@@ -362,8 +350,7 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 2;
-    
+    z-index: 2;    
   }
 
   .modal {

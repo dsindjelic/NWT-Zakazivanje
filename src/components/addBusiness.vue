@@ -78,7 +78,7 @@ export default {
       submitted: false,
       nanaslovnu: "",
       act: []
-    };
+    }
   },
   methods: {
     post: function() {
@@ -90,7 +90,7 @@ export default {
         .then(function(data) {
           console.log(data);
           this.submitted = true;
-        });
+        })
     },
     
     /*
@@ -120,7 +120,7 @@ export default {
     //},
     pswrds: function() {
       if (this.business.bpsw != this.business.brepsw) {
-        alert("Lozinke se ne slazu, pokusajte ponovo!");
+        alert("Lozinke se ne slazu, pokusajte ponovo!")
       }
     }
   },

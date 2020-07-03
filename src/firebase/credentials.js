@@ -1,6 +1,8 @@
-import firebase from 'firebase'
-//import firestore from 'firebase/firestore'
+import firebase from 'firebase/app';
+import 'firebase/auth';
+import 'firebase/firestore';
 
+require('firebase/firestore')
 var firebaseConfig = {
         apiKey: "AIzaSyArN43w0EpIRfedtFETJjXHxi01CLIo-OA",
         authDomain: "scheduling-nwt.firebaseapp.com",
@@ -13,5 +15,5 @@ var firebaseConfig = {
     }
 
 const firebaseApp = firebase.initializeApp(firebaseConfig)
-firebaseApp.firestore().settings({timestampsInSnapshots: true})
+//firebaseApp.firestore().settings({timestampsInSnapshots: true})
 export default firebaseApp.firestore()
