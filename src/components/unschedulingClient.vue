@@ -87,9 +87,11 @@ methods:{
      console.log(collId)
      db.collection("scheduling").doc(collId).delete().then(function() {
     console.log("Document successfully deleted!");
+    
 }).catch(function(error) {
     console.error("Error removing document: ", error);
-});
+})
+this.findTerms()
 
 
       }
