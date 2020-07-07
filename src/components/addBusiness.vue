@@ -13,7 +13,7 @@
       <input type="text" v-model="business.bname" />
       <label>Delatnost:</label>
       <select v-model="business.activity">
-        <option v-for="delatnost in delatnosti" v-bind:key="delatnost">{{delatnost}}</option>
+      <option v-for="delatnost in delatnosti" v-bind:key="delatnost">{{delatnost}}</option>
       </select>
       <label>Telefon:</label>
       <input type="text" v-model="business.btel" />

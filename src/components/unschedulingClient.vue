@@ -1,20 +1,19 @@
 <template>
-    <div id="user-form">
+  <div id="user-form">
+    <form class="user-form">
+      <div>
+        <h2>Unesite svoje podatke</h2>
 
-        <form  class="user-form" >
-      <div >
-        <h2> Unesite svoje podatke</h2>
-        
-            <input type="text"  placeholder="Ime" v-model="user.name"/>            
-            <input type="text" placeholder="Prezime" v-model="user.surname"/>            
-            <input type="text" placeholder="broj telefona" v-model="user.tel"/>                       
-            <button v-on:click.prevent="findTerms">Prikazi termine</button>                      
+        <input type="text" placeholder="Ime" v-model="user.name" />
+        <input type="text" placeholder="Prezime" v-model="user.surname" />
+        <input type="text" placeholder="broj telefona" v-model="user.tel" />
+        <button v-on:click.prevent="findTerms">Prikazi termine</button>
       </div>
     </form>
-    <form >
+    <form>
       <div v-if="appts.length" id="satnice">
         <ul>
-          <li  v-for="apt  in appts" @click="unscheduleTerm(apt)" v-bind:key="apt.index">
+          <li v-for="apt  in appts" @click="unscheduleTerm(apt)" v-bind:key="apt.index">
             <h2>{{apt.business}}</h2>
             <h3>{{ apt.date }}</h3>
             <h3>{{apt.time}}</h3>
@@ -23,80 +22,84 @@
         </ul>
       </div>
       <div v-if="noTerms">
-        <h3> Zao nam je, za navedene podatke nismo pronasli ni jedan zakazani termin</h3>
+        <h3>Zao nam je, za navedene podatke nismo pronasli ni jedan zakazani termin</h3>
       </div>
-
-      </form>    
-    </div>
+    </form>
+  </div>
 </template>
 
 
 <script>
+import db from "../firebase/credentials";
 
-import db from '../firebase/credentials'
+export default {
+  data() {
+    return {
+      user: {
+        name: "",
+        surname: "",
+        tel: ""
+      },
+      appointment: {
+        date: "",
+        time: "",
+        business: ""
+      },
+      appts: [],
+      apptsindexs: [],
+      showTerms: false,
+      noTerms: false
+    };
+  },
+  methods: {
+    findTerms: function() {
+      this.appts = [];
+      this.noTerms = false;
+      let findUser = db
+        .collection("scheduling")
+        .where("name", "==", this.user.name)
+        .where("surname", "==", this.user.surname)
+        .where("tel", "==", this.user.tel);
 
-export default {    
-    
-data(){
-    return{
-        user:{
-            name:'',
-            surname:'',
-            tel:''
-        },
-        appointment:{                    
-            date:'',
-            time:'',
-            business:''            
-        },
-        appts:[],
-        apptsindexs:[],
-        showTerms:false,
-        noTerms:false
-    }
-},
-methods:{    
-    findTerms: function(){
-      this.appts=[]
-      this.noTerms=false
-        let findUser=db.collection('scheduling').where('name','==',this.user.name)
-        .where('surname','==',this.user.surname)
-        .where('surname', '==', this.user.surname)
+      findUser.get().then(snapshot => {
+        console.log(snapshot);
+        snapshot.forEach(doc => {
+          console.log(doc.id, doc.data());
+          this.appts.push(doc.data());
+          this.apptsindexs.push(doc.id);
+        });
 
-        findUser.get().then(snapshot=>{
-          console.log(snapshot)
-           snapshot.forEach(doc=>{
-             console.log(doc.id, doc.data())
-                 this.appts.push(doc.data())
-                 this.apptsindexs.push(doc.id)
-           })
-         
-         console.log(this.user.name,this.user.surname,this.user.tel,Object.values(this.appts))
-         if(this.appts.length===0){
-           this.noTerms=true
-           this.showTerms=false
-         }
-         else{
-           this.noTerms=false
-         this.showTerms=true
-         }
-        })
+        console.log(
+          this.user.name,
+          this.user.surname,
+          this.user.tel,
+          Object.values(this.appts)
+        );
+        if (this.appts.length === 0) {
+          this.noTerms = true;
+          this.showTerms = false;
+        } else {
+          this.noTerms = false;
+          this.showTerms = true;
+        }
+      });
     },
-    unscheduleTerm: function(apt){
-      let collId=this.apptsindexs[(this.appts.indexOf(apt))]
-     console.log(collId)
-     db.collection("scheduling").doc(collId).delete().then(function() {
-    console.log("Document successfully deleted!");
-    
-}).catch(function(error) {
-    console.error("Error removing document: ", error);
-})
-this.findTerms()
-
-
-      }
+    unscheduleTerm: function(apt) {
+      let collId = this.apptsindexs[this.appts.indexOf(apt)];
+      console.log(collId);
+      db.collection("scheduling")
+        .doc(collId)
+        .delete()
+        .then(function() {
+          console.log("Document successfully deleted!");
+        })
+        .catch(function(error) {
+          console.error("Error removing document: ", error);
+        });
+      this.findTerms();
     }
-}
+  }
+};
 </script>
 <style scoped>
 #user-form * {
@@ -136,7 +139,7 @@ li {
   height: 100px;
   flex-grow: 1;
   flex-basis: 10%;
-  
+
   text-align: center;
   padding: 10px;
   border: 2px solid black;

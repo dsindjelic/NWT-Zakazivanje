@@ -1,4 +1,5 @@
-import firebase from 'firebase/app';
+//import firebase from 'firebase/app';
+import firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/firestore';
 
@@ -16,4 +17,7 @@ var firebaseConfig = {
 
 const firebaseApp = firebase.initializeApp(firebaseConfig)
 //firebaseApp.firestore().settings({timestampsInSnapshots: true})
+//var admin = require("firebase-admin");
+//var rdbase = admin.database();
+//var ref = firebase.database().ref();
 export default firebaseApp.firestore()
