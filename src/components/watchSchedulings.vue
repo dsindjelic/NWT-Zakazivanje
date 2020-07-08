@@ -34,7 +34,7 @@
         <ul>
           <li v-for="apt  in appts"  v-bind:key="apt.index">
             <h2>{{apt.time}}</h2>
-            <h3>{{ apt.name }}</h3>
+            <h3>{{apt.name }}</h3>
             <h3>{{apt.surname}}</h3>
             <h3>tel: {{apt.tel}}</h3>
           </li>
@@ -43,7 +43,7 @@
       <div v-if="noTerms">
         <h3>Za navedeni datum nismo pronašli ni jedan zakazani termin</h3>
       </div>
-      <button v-on:click.prevent="logOff">Odjavi se</button>
+      <button v-on:click="logOff">Odjavi se</button>
 
     </form>
   </div>
@@ -101,7 +101,7 @@ export default {
   methods: {
     logIn: function(usrnm, psw) {
       console.log("1.", this.business.busername, this.business.bpsw);
-      const that = this;
+      const that = this;      
       let ref = firebase.database().ref("business/");
       ref.orderByValue().on(
         "value",
@@ -119,6 +119,8 @@ export default {
       );
     },
     logOff:function(){
+      $forceUpdate();
+      this.date=new Date();
       this.businessName = "";
 
     },

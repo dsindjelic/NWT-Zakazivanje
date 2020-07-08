@@ -8,7 +8,6 @@ export default[
     {path:'/', component:schedulingClient},
     {path:'/adduser', component:addUser},
     {path:'/addbusiness', component:addBusiness},
-    {path:'/schedulingclient', component:schedulingClient},
     {path:'/unschedulingclient', component:unschedulingClient},
     {path:'/watchschedulings', component:watchSchedulings}
 ]

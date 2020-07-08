@@ -138,11 +138,13 @@ export default {
   },
   methods: {
     updateDate: function(date) {
+      console.log("system date =", new Date())
       let newDate = new Date(date);
       this.date = newDate;
       this.hours.forEach(element => {
         element.booked = false;
       });
+      
       console.log(this.date);
       this.byDate();
     },
@@ -214,6 +216,7 @@ export default {
     onChange: function(event) {
       this.selectedBusiness = event.target.value;
       console.log("izabrana firma je", this.selectedBusiness);
+      console.log("system date  = ",this.date);
     },
     onChangeD: function(event) {
       this.delatnost = event.target.value;
@@ -258,6 +261,7 @@ export default {
         this.act = data.body;
 
         console.log(this.act);
+        
       });
 
     db.collection("scheduling")
