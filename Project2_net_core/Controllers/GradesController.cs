@@ -5,6 +5,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using CsvHelper;
+using NWT_2.Services;
 
 namespace NWT_2.Controllers
 {
@@ -12,7 +14,7 @@ namespace NWT_2.Controllers
     [Route("[controller]")]
     public class GradesController : ControllerBase
     {
-        List<int> values = new List<int>();
+        List<int> grades = new List<int>();
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -26,30 +28,35 @@ namespace NWT_2.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<int> Get()
+        public IEnumerable<Grades> Get()
         {
-            int temp1, temp2;
-            string tempstr;
+            Console.WriteLine("Start CSV File Reading...");
+            var _studentService = new GradesService();
+            var path = "wwwroot/Dnevnik1.csv";
 
+            //Here We are calling function to read CSV file
+            var resultData = _studentService.ReadCSVFile(path);
+           
 
-            using (StreamReader reader = new StreamReader("wwwroot/log_11-10-2014.txt"))
-            {
-                while (!reader.EndOfStream)
-                {
-                    tempstr = reader.ReadLine();
-                    temp1 = tempstr.IndexOf("level");
-                    temp2 = tempstr.IndexOf("frequency");
-                    if ((temp1 != -1) && (temp2 != -1))
-                    {
-                        tempstr = tempstr.Substring(temp1 + 8, ((temp2 - 3) - (temp1 + 8)));
-                        values.Add(Convert.ToInt16(tempstr));
-                        //return tempstr;
+            //Create an object of the Student class
+            Grades grade = new Grades();
+            grade.rb= "12";
+            grade.ime_i_prezime = "Natalija";
+            grade.matematika = 2;
+            grade.srpski = 3;
+            grade.fizika = 1;
+            grade.hemija = 2;
+            grade.biologija = 2;
+            grade.vladanje = 2;
 
-                    }
+            resultData.Add(grade);
+            //Here We are calling function to write file
 
-                }
-                return values;
-            }
+            _studentService.WriteCSVFile("wwwroot/average.csv", resultData);
+            //Here D: Drive and Tutorials is the Folder name, and CSV File name will be "NewStudentFile.csv"
+
+            Console.WriteLine("New File Created Successfully.");
+            return resultData.ToArray();
         }
     }
 }
