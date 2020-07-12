@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using CsvHelper;
 using NWT_2.Services;
 
+
 namespace NWT_2.Controllers
 {
     [ApiController]
@@ -56,7 +57,7 @@ namespace NWT_2.Controllers
             //Here D: Drive and Tutorials is the Folder name, and CSV File name will be "NewStudentFile.csv"
 
             Console.WriteLine("New File Created Successfully.");
-            return resultData.ToArray();
+            return resultData;
         }
     }
 }
