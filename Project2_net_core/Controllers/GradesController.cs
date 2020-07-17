@@ -7,7 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using CsvHelper;
 using NWT_2.Services;
-
+using NWT_2.Data;
+using NWT_2.Models;
 
 namespace NWT_2.Controllers
 {
@@ -16,6 +17,26 @@ namespace NWT_2.Controllers
     public class GradesController : ControllerBase
     {
         List<int> grades = new List<int>();
+
+        private void SnimiUBazu()
+        {
+            using GradesContext grades = new GradesContext();
+            GradesEF pera = new GradesEF()
+            {
+                No = "2",
+                name = "Mita Mitic",
+                math = 3,
+                serb = 4,
+                phys = 5,
+                chem = 3,
+                bio = 3,
+                rule = 2
+            };
+            grades.Add(pera);
+            grades.SaveChanges();
+
+        }
+
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -31,6 +52,9 @@ namespace NWT_2.Controllers
         [HttpGet]
         public IEnumerable<Grades> Get()
         {
+            
+
+
             Console.WriteLine("Start CSV File Reading...");
             var _studentService = new GradesService();
             var path = "wwwroot/Dnevnik1.csv";
@@ -57,6 +81,7 @@ namespace NWT_2.Controllers
             //Here D: Drive and Tutorials is the Folder name, and CSV File name will be "NewStudentFile.csv"
 
             Console.WriteLine("New File Created Successfully.");
+            SnimiUBazu();
             return resultData;
         }
     }
