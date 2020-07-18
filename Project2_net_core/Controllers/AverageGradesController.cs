@@ -26,10 +26,13 @@ namespace NWT_2.Controllers
         [HttpGet]
         public AverageGrades Get(string rb)
         {
+            //read from localDB
+
+
             var response = new AverageGrades()
             {
-                rb = rb,
-                ime_i_prezime = "Pera Mitic",
+                No = rb,
+               name = "Pera Mitic",
                 averageRating = 3.43F
             };
             return response;

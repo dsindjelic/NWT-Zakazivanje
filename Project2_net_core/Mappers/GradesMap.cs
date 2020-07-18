@@ -11,14 +11,14 @@ namespace NWT_2.Mappers
     {
         public GradesMap()
         {
-            Map(x => x.rb).Name("rb");
-            Map(x => x.ime_i_prezime).Name("ime_i_prezime");
-            Map(x => x.matematika).Name("matematika");
-            Map(x => x.srpski).Name("srpski");
-            Map(x => x.fizika).Name("fizika");
-            Map(x => x.hemija).Name("hemija");
-            Map(x => x.biologija).Name("biologija");
-            Map(x => x.vladanje).Name("vladanje");
+            Map(x => x.No).Name("rb");
+            Map(x => x.name).Name("ime_i_prezime");
+            Map(x => x.math).Name("matematika");
+            Map(x => x.serb).Name("srpski");
+            Map(x => x.phys).Name("fizika");
+            Map(x => x.chem).Name("hemija");
+            Map(x => x.bio).Name("biologija");
+            Map(x => x.rule).Name("vladanje");
         }
     }
 }

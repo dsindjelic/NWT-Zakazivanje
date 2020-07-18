@@ -10,37 +10,36 @@ using NWT_2.Services;
 using NWT_2.Data;
 using NWT_2.Models;
 
+
 namespace NWT_2.Controllers
 {
     [ApiController]
     [Route("[controller]")]
     public class GradesController : ControllerBase
     {
-        List<int> grades = new List<int>();
+        
 
-        private void SnimiUBazu()
+        private void WriteToDatabase(int ind, Grades student)
         {
             using GradesContext grades = new GradesContext();
-            GradesEF pera = new GradesEF()
+            GradesEF newStudent = new GradesEF()
             {
-                No = "2",
-                name = "Mita Mitic",
-                math = 3,
-                serb = 4,
-                phys = 5,
-                chem = 3,
-                bio = 3,
-                rule = 2
+                No = ind.ToString(),
+                name = student.name,
+                math = student.math,
+                serb = student.serb,
+                phys = student.phys,
+                chem = student.chem,
+                bio = student.bio,
+                rule = student.rule,
+                averageRating = Convert.ToDecimal (student.averageGrade)
             };
-            grades.Add(pera);
+            grades.Add(newStudent);
             grades.SaveChanges();
 
         }
 
-        private static readonly string[] Summaries = new[]
-        {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-        };
+        
 
         private readonly ILogger<GradesController> _logger;
 
@@ -52,36 +51,28 @@ namespace NWT_2.Controllers
         [HttpGet]
         public IEnumerable<Grades> Get()
         {
-            
 
-
-            Console.WriteLine("Start CSV File Reading...");
-            var _studentService = new GradesService();
+            int i=15, tempi = 0;     
+            var _gradesService = new GradesService();
             var path = "wwwroot/Dnevnik1.csv";
 
             //Here We are calling function to read CSV file
-            var resultData = _studentService.ReadCSVFile(path);
+            var resultData = _gradesService.ReadCSVFile(path);
+            //Create  objects of the Grades class
+            foreach (Grades result in resultData)
+            {
+                tempi = result.serb + result.math + result.phys + result.chem + result.bio+ result.rule;
+                result.averageGrade = tempi / 6F;
+
+                //Here We are calling function to write result object
+                WriteToDatabase(i, result);
+                i++;
+            } 
+            
+            //Here is the Folder name, and CSV File name will be "average.csv" , service to write in the csv file          
+            _gradesService.WriteCSVFile("wwwroot/average.csv", resultData);
+                      
            
-
-            //Create an object of the Student class
-            Grades grade = new Grades();
-            grade.rb= "12";
-            grade.ime_i_prezime = "Natalija";
-            grade.matematika = 2;
-            grade.srpski = 3;
-            grade.fizika = 1;
-            grade.hemija = 2;
-            grade.biologija = 2;
-            grade.vladanje = 2;
-
-            resultData.Add(grade);
-            //Here We are calling function to write file
-
-            _studentService.WriteCSVFile("wwwroot/average.csv", resultData);
-            //Here D: Drive and Tutorials is the Folder name, and CSV File name will be "NewStudentFile.csv"
-
-            Console.WriteLine("New File Created Successfully.");
-            SnimiUBazu();
             return resultData;
         }
     }

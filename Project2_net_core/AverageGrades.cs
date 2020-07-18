@@ -8,8 +8,8 @@ namespace NWT_2
     public class AverageGrades
     {
 
-        public string rb { get; set; }
-        public string ime_i_prezime { get; set; }
+        public string No { get; set; }
+        public string name { get; set; }
         public float averageRating { get; set; }
     }
 }
