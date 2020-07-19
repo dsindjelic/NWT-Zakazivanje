@@ -14,6 +14,8 @@ namespace NWT_2.Data
 {
     public class GradesContext : DbContext
     {
+        internal IOrderedQueryable<GradesEF> gr;
+
         public DbSet<GradesEF> SGradesEF { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

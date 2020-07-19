@@ -51,13 +51,26 @@ namespace NWT_2.Controllers
         [HttpGet]
         public IEnumerable<Grades> Get()
         {
-
-            int i=15, tempi = 0;     
+            int i=1, tempi = 0;     
             var _gradesService = new GradesService();
             var path = "wwwroot/Dnevnik1.csv";
 
             //Here We are calling function to read CSV file
             var resultData = _gradesService.ReadCSVFile(path);
+
+            using (GradesContext grade = new GradesContext())
+            {
+                if (grade.SGradesEF.Any())
+                {
+                    IOrderedQueryable<int> gr = (IOrderedQueryable<int>)grade.SGradesEF.Select(s => Convert.ToInt32( s.No));
+                    i = gr.ToArray().Max()+1;
+                }
+                else
+                {
+                    i = 1;
+                }
+
+            }
             //Create  objects of the Grades class
             foreach (Grades result in resultData)
             {

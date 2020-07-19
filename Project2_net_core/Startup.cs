@@ -50,6 +50,7 @@ namespace NWT_2
             {
                 endpoints.MapControllers();
             });
+
         }
     }
 }

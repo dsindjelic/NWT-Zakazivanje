@@ -10,7 +10,6 @@ using NWT_2.Services;
 using NWT_2.Data;
 using NWT_2.Models;
 using System.Xml.Serialization;
-using System.Net.Http;
 using System.Net;
 
 namespace NWT_2.Controllers
@@ -62,8 +61,6 @@ namespace NWT_2.Controllers
             using (GradesContext grd = new GradesContext())
             {
                 gradeList= grd.SGradesEF.ToList();
-               // HttpResponseMessage response;
-                // response = Request.CreateResponse(HttpStatusCode.OK, gradeList);
                 return gradeList;
             }
              
