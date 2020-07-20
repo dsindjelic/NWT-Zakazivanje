@@ -43,7 +43,6 @@ namespace NWT_2.Controllers
             {
                 return NotFound();
             }
-
             return Ok(students);
         }
     
@@ -61,9 +60,7 @@ namespace NWT_2.Controllers
             {
                 List<GradesEF> gradeList = grd.SGradesEF.ToList();
                 return gradeList;
-            }
-             
-        }           
-        
+            }             
+        }               
     }
 }
