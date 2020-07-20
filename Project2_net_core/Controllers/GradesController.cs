@@ -9,6 +9,7 @@ using CsvHelper;
 using NWT_2.Services;
 using NWT_2.Data;
 using NWT_2.Models;
+using System.Windows;
 
 
 namespace NWT_2.Controllers
@@ -44,14 +45,17 @@ namespace NWT_2.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<Grades> Get()
+        public IEnumerable<Grades> Get(string? filename)
         {
             int i=1, tempi = 0;     
             var _gradesService = new GradesService();
-            var path = "wwwroot/Dnevnik1.csv";
-
+            var path = "wwwroot/"+filename;
+            
             //Here We are calling function to read CSV file
-            var resultData = _gradesService.ReadCSVFile(path);
+            if (System.IO.File.Exists(path))
+            {
+                 var resultData = _gradesService.ReadCSVFile(path);
+            
 
             using (GradesContext grade = new GradesContext())
             {
@@ -81,6 +85,11 @@ namespace NWT_2.Controllers
                 
            
             return resultData;
+            }
+            else
+            {
+                return null;
+            }
         }
     }
 }

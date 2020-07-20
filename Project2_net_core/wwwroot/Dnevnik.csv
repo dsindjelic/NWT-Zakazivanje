@@ -1,8 +1,9 @@
-rb;;matematika;srpski;fizika;hemija;biologija;gradjansko;verska n.;vladanje;
-1;Andrija �ivkovi?;5;4;5;3;4;uspesan;Zadovoljava;2;3
-3;Ema Kostov;/;3;2;2;3;uspesan;Zadovoljava;1;
-5;Janko Trpkov;1;1;3;4;3;Veoma uspesan;Istice se;4;
-6;Mika Lazi?;4;2;2;2;3;Neuspesan;Dobar;2;
-8;Pera Peri?;3;2;3;2;4;Veoma uspesan;Zadovoljava;2;
-9;Sara Lazi?;2;3;/;3;3;Veoma uspesan;Dobar;1;
-10;Una Seni?;2;1;1;1;2;Veoma uspesan;Dobar;3;
+﻿rb,ime_i_prezime,matematika,srpski,fizika,hemija,biologija,vladanje
+1,Ana Grujić,5,4,5,3,4,2,3
+3,Ema Kostov,4,3,2,2,3,1,
+5,Pera Peric,2,3,4,4,3,4,
+6,Sava v. Savic,5,6,3,1,3,2,
+8,Kosta  Simić,2,4,4,4,4,2,
+9,Sanja Ilić,1,5,5,5,5,1,
+10,Jasmina Jeftić,2,1,1,1,2,3,
+11,Ivan Jerinić,2,2,2,2,2,3,
