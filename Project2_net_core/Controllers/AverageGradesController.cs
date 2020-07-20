@@ -29,14 +29,20 @@ namespace NWT_2.Controllers
         [HttpGet]
         public IEnumerable<string> Get()
         {
+            List<string> na = new List<string>();
+            List<GradesEF> gradeList = new List<GradesEF>();
             //read from localDB
-            using (GradesContext grade = new GradesContext())
+            using (GradesContext grd = new GradesContext())
             {
-                IOrderedQueryable<GradesEF> gr = (IOrderedQueryable<GradesEF>)grade.SGradesEF.OrderBy(s => s.name).First();
-                
+                gradeList = grd.SGradesEF.ToList();
+               
             }
 
-            return (IEnumerable<string>)gr.ToList();
+            foreach (GradesEF g in gradeList)
+            {
+                na.Add(g.name + "-->" + g.averageRating);
+            }
+            return na;
             
         }
     }
