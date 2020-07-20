@@ -7,10 +7,10 @@ EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["NWT-2.csproj", ""]
-RUN dotnet restore "./NWT-2.csproj"
+COPY ["NWT-2.csproj", "./"]
+RUN dotnet restore "NWT-2.csproj"
 COPY . .
-WORKDIR "/src/."
+WORKDIR "/src/"
 RUN dotnet build "NWT-2.csproj" -c Release -o /app/build
 
 FROM build AS publish

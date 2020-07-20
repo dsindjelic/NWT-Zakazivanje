@@ -16,8 +16,6 @@ namespace NWT_2.Controllers
     [Route("[controller]")]
     public class AverageGradesController : ControllerBase
     {
-       
-
         private readonly ILogger<AverageGradesController> _logger;
         private IOrderedQueryable<GradesEF> gr;
 
@@ -27,23 +25,24 @@ namespace NWT_2.Controllers
         }
 
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<GradesEF> Get(string no)
         {
-            List<string> na = new List<string>();
             List<GradesEF> gradeList = new List<GradesEF>();
+                        
             //read from localDB
             using (GradesContext grd = new GradesContext())
             {
-                gradeList = grd.SGradesEF.ToList();
-               
+                gradeList = grd.SGradesEF.ToList();               
             }
-
-            foreach (GradesEF g in gradeList)
+            if (no == null) 
             {
-                na.Add(g.name + "-->" + g.averageRating);
+                return gradeList;
             }
-            return na;
-            
+            else
+            {
+                return new List<GradesEF>() { gradeList.Find(s => s.No == no)};
+            }
+                                    
         }
     }
 }

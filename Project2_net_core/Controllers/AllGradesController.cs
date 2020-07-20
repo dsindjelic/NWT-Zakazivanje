@@ -57,20 +57,13 @@ namespace NWT_2.Controllers
         [HttpGet]
         public IEnumerable<GradesEF> Get()
         {
-            List<GradesEF> gradeList = new List<GradesEF>();
             using (GradesContext grd = new GradesContext())
             {
-                gradeList= grd.SGradesEF.ToList();
+                List<GradesEF> gradeList = grd.SGradesEF.ToList();
                 return gradeList;
             }
              
-        }
-
-
-
-
-            
-            
+        }           
         
     }
 }

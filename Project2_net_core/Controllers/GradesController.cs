@@ -17,9 +17,7 @@ namespace NWT_2.Controllers
     [Route("[controller]")]
     public class GradesController : ControllerBase
     {
-        
-
-        private void WriteToDatabase(int ind, Grades student)
+        private static void WriteToDatabase(int ind, Grades student)
         {
             using GradesContext grades = new GradesContext();
             GradesEF newStudent = new GradesEF()
@@ -36,10 +34,7 @@ namespace NWT_2.Controllers
             };
             grades.Add(newStudent);
             grades.SaveChanges();
-
-        }
-
-        
+        }        
 
         private readonly ILogger<GradesController> _logger;
 
@@ -73,18 +68,17 @@ namespace NWT_2.Controllers
             }
             //Create  objects of the Grades class
             foreach (Grades result in resultData)
-            {
+            {     
                 tempi = result.serb + result.math + result.phys + result.chem + result.bio+ result.rule;
                 result.averageGrade = tempi / 6F;
 
                 //Here We are calling function to write result object
                 WriteToDatabase(i, result);
                 i++;
-            } 
-            
+            }             
             //Here is the Folder name, and CSV File name will be "average.csv" , service to write in the csv file          
             _gradesService.WriteCSVFile("wwwroot/average.csv", resultData);
-                      
+                
            
             return resultData;
         }
