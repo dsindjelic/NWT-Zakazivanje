@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "HCqff7Lgm3h69IB6ymE77xwh8X0XZmKGzgj6x9gyLkaUurwP8Q3nwvP/SHLVJIEc7O8JmpNdoFUGswrM2l1HFw==",
+  "success": true,
+  "projectFilePath": "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BanckAccountSystem.Repository\\BanckAccountSystem.Repository.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Dejan\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
+    "C:\\Users\\Dejan\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
