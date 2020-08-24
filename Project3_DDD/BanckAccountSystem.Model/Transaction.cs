@@ -22,5 +22,7 @@ namespace BanckAccountSystem.Model
         { get; internal set; }
         public DateTime Date
         { get; internal set; }
+        public Transaction BanckAccount { get; set; }
+        public Guid BanckAccountId { get; set; }
     }
 }

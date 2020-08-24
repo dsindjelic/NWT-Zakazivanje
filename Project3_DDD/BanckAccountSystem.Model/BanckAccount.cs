@@ -31,13 +31,17 @@ namespace BanckAccountSystem.Model
         public decimal Balance
         {
             get { return _balance; }
-            internal set { _balance = value; }
+            set { _balance = value; }
         }
         public string CustomerRef
         {
             get { return _customerRef; }
             set { _customerRef = value; }
         }
+
+        public List<Transaction> Transaction { get; set; }
+        public Guid BanckAccountId { get; set; }
+
         public bool CanWithdraw(decimal amount)
         {
             return (Balance >= amount);
@@ -64,6 +68,7 @@ namespace BanckAccountSystem.Model
         {
             return _transactions;
         }
+
 
     }
 }

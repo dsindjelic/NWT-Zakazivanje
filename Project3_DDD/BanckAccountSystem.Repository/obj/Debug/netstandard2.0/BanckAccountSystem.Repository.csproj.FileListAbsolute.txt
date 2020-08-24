@@ -1,0 +1,4 @@
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Model.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.csprojAssemblyReference.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.AssemblyInfoInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.AssemblyInfo.cs
