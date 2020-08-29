@@ -35,7 +35,6 @@
       "path": "microsoft.netcore.platforms/1.1.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/netstandard1.0/_._",
@@ -50,7 +49,6 @@
       "path": "netstandard.library/2.0.3",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
         "build/netstandard2.0/NETStandard.Library.targets",
@@ -180,7 +178,8 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Dejan\\.nuget\\packages\\": {}
+    "C:\\Users\\Dejan\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
@@ -191,6 +190,9 @@
       "packagesPath": "C:\\Users\\Dejan\\.nuget\\packages\\",
       "outputPath": "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BanckAccountSystem.Model\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
         "C:\\Users\\Dejan\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

@@ -13,6 +13,9 @@
         "packagesPath": "C:\\Users\\Dejan\\.nuget\\packages\\",
         "outputPath": "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BanckAccountSystem.Model\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Dejan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -69,6 +72,9 @@
         "packagesPath": "C:\\Users\\Dejan\\.nuget\\packages\\",
         "outputPath": "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BanckAccountSystem.Repository\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
         "configFilePaths": [
           "C:\\Users\\Dejan\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -101,13 +107,17 @@
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[2.2.6, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[3.1.7, )"
+              "version": "[2.2.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[2.2.6, )"
             },
             "NETStandard.Library": {
               "suppressParent": "All",

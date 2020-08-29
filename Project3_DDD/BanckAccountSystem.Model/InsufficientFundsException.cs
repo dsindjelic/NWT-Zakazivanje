@@ -4,7 +4,7 @@ using System.Text;
 
 namespace BanckAccountSystem.Model
 {
-   public class InsufficientFundsException:ApplicationException
+    public class InsufficientFundsException : ApplicationException
     {
     }
 }

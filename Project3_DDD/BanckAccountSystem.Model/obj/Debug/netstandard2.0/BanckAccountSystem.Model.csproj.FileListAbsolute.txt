@@ -1,0 +1,18 @@
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Model\bin\Debug\netstandard2.0\BanckAccountSystem.Model.deps.json
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Model\bin\Debug\netstandard2.0\BanckAccountSystem.Model.dll
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Model\bin\Debug\netstandard2.0\BanckAccountSystem.Model.pdb
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.csprojAssemblyReference.cache
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.AssemblyInfoInputs.cache
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.AssemblyInfo.cs
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.dll
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.pdb
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.csproj.CoreCompileInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Model\bin\Debug\netstandard2.0\BanckAccountSystem.Model.deps.json
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Model\bin\Debug\netstandard2.0\BanckAccountSystem.Model.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Model\bin\Debug\netstandard2.0\BanckAccountSystem.Model.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.AssemblyInfoInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.AssemblyInfo.cs
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.csproj.CoreCompileInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Model\obj\Debug\netstandard2.0\BanckAccountSystem.Model.csprojAssemblyReference.cache

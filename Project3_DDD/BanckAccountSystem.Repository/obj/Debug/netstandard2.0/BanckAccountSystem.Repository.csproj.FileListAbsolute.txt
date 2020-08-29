@@ -1,4 +1,24 @@
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Model.dll
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.csprojAssemblyReference.cache
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.AssemblyInfoInputs.cache
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.AssemblyInfo.cs
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Repository.deps.json
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Repository.dll
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Repository.pdb
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Model.pdb
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.csproj.CopyComplete
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.dll
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.pdb
+C:\Worksapce\MicroServices\My tutorial on medium\DDD\BanckAccountSystem\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.csproj.CoreCompileInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Repository.deps.json
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Repository.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Repository.pdb
 D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Model.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Debug\netstandard2.0\BanckAccountSystem.Model.pdb
 D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.csprojAssemblyReference.cache
 D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.AssemblyInfoInputs.cache
 D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.AssemblyInfo.cs
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.csproj.CoreCompileInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.csproj.CopyComplete
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Debug\netstandard2.0\BanckAccountSystem.Repository.pdb

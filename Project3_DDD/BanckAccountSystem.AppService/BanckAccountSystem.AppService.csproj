@@ -5,7 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BanckAccountSystem.Model\BanckAccountSystem.Model.csproj" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\BanckAccountSystem.Repository\BanckAccountSystem.Repository.csproj" />
   </ItemGroup>
 

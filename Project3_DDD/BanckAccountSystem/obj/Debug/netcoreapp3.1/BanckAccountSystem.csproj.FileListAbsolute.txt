@@ -1,0 +1,9 @@
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem\obj\Debug\netcoreapp3.1\BanckAccountSystem.csprojAssemblyReference.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem\obj\Debug\netcoreapp3.1\BanckAccountSystem.AssemblyInfoInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem\obj\Debug\netcoreapp3.1\BanckAccountSystem.AssemblyInfo.cs
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem\obj\Debug\netcoreapp3.1\BanckAccountSystem.csproj.CoreCompileInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem\obj\Debug\netcoreapp3.1\BanckAccountSystem.MvcApplicationPartsAssemblyInfo.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem\obj\Debug\netcoreapp3.1\BanckAccountSystem.TagHelpers.input.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem\obj\Debug\netcoreapp3.1\BanckAccountSystem.TagHelpers.output.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem\obj\Debug\netcoreapp3.1\BanckAccountSystem.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem\obj\Debug\netcoreapp3.1\BanckAccountSystem.pdb
