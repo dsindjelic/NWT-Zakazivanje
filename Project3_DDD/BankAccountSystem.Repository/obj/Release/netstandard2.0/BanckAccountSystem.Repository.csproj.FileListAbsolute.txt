@@ -1,0 +1,12 @@
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Release\netstandard2.0\BanckAccountSystem.Repository.deps.json
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Release\netstandard2.0\BanckAccountSystem.Repository.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Release\netstandard2.0\BanckAccountSystem.Repository.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Release\netstandard2.0\BanckAccountSystem.Model.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\bin\Release\netstandard2.0\BanckAccountSystem.Model.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Release\netstandard2.0\BanckAccountSystem.Repository.csprojAssemblyReference.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Release\netstandard2.0\BanckAccountSystem.Repository.AssemblyInfoInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Release\netstandard2.0\BanckAccountSystem.Repository.AssemblyInfo.cs
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Release\netstandard2.0\BanckAccountSystem.Repository.csproj.CoreCompileInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Release\netstandard2.0\BanckAccountSystem.Repository.csproj.CopyComplete
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Release\netstandard2.0\BanckAccountSystem.Repository.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.Repository\obj\Release\netstandard2.0\BanckAccountSystem.Repository.pdb

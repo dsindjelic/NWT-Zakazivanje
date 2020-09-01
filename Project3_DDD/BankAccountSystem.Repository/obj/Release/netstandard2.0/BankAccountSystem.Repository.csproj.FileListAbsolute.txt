@@ -1,0 +1,12 @@
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\bin\Release\netstandard2.0\BankAccountSystem.Repository.deps.json
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\bin\Release\netstandard2.0\BankAccountSystem.Repository.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\bin\Release\netstandard2.0\BankAccountSystem.Repository.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\bin\Release\netstandard2.0\BankAccountSystem.Model.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\bin\Release\netstandard2.0\BankAccountSystem.Model.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\obj\Release\netstandard2.0\BankAccountSystem.Repository.csprojAssemblyReference.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\obj\Release\netstandard2.0\BankAccountSystem.Repository.AssemblyInfoInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\obj\Release\netstandard2.0\BankAccountSystem.Repository.AssemblyInfo.cs
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\obj\Release\netstandard2.0\BankAccountSystem.Repository.csproj.CoreCompileInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\obj\Release\netstandard2.0\BankAccountSystem.Repository.csproj.CopyComplete
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\obj\Release\netstandard2.0\BankAccountSystem.Repository.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.Repository\obj\Release\netstandard2.0\BankAccountSystem.Repository.pdb

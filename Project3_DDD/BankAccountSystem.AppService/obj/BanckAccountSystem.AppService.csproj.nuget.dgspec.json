@@ -1,0 +1,75 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BanckAccountSystem.AppService\\BanckAccountSystem.AppService.csproj": {}
+  },
+  "projects": {
+    "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BanckAccountSystem.AppService\\BanckAccountSystem.AppService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BanckAccountSystem.AppService\\BanckAccountSystem.AppService.csproj",
+        "projectName": "BanckAccountSystem.AppService",
+        "projectPath": "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BanckAccountSystem.AppService\\BanckAccountSystem.AppService.csproj",
+        "packagesPath": "C:\\Users\\Dejan\\.nuget\\packages\\",
+        "outputPath": "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BanckAccountSystem.AppService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Dejan\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netstandard2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "Https://api.nuget.org/v3/index.json": {},
+          "http://packagesource": {}
+        },
+        "frameworks": {
+          "netstandard2.0": {
+            "projectReferences": {
+              "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BankAccountSystem.Repository\\BankAccountSystem.Repository.csproj": {
+                "projectPath": "D:\\Master\\Napredne Web Tehnologije\\ISPIT\\NWT-Zakazivanje\\Project3_DDD\\BankAccountSystem.Repository\\BankAccountSystem.Repository.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netstandard2.0": {
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

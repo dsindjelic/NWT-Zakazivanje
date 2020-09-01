@@ -1,0 +1,14 @@
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\bin\Debug\netstandard2.0\BankAccountSystem.AppService.deps.json
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\bin\Debug\netstandard2.0\BankAccountSystem.AppService.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\bin\Debug\netstandard2.0\BankAccountSystem.AppService.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\bin\Debug\netstandard2.0\BankAccountSystem.Model.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\bin\Debug\netstandard2.0\BankAccountSystem.Repository.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\bin\Debug\netstandard2.0\BankAccountSystem.Repository.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\bin\Debug\netstandard2.0\BankAccountSystem.Model.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\obj\Debug\netstandard2.0\BankAccountSystem.AppService.csprojAssemblyReference.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\obj\Debug\netstandard2.0\BankAccountSystem.AppService.AssemblyInfoInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\obj\Debug\netstandard2.0\BankAccountSystem.AppService.AssemblyInfo.cs
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\obj\Debug\netstandard2.0\BankAccountSystem.AppService.csproj.CoreCompileInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\obj\Debug\netstandard2.0\BankAccountSystem.AppService.csproj.CopyComplete
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\obj\Debug\netstandard2.0\BankAccountSystem.AppService.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BankAccountSystem.AppService\obj\Debug\netstandard2.0\BankAccountSystem.AppService.pdb

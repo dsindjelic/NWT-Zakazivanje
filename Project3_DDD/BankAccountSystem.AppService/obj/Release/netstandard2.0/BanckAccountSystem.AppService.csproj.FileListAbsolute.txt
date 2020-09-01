@@ -1,0 +1,14 @@
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\bin\Release\netstandard2.0\BanckAccountSystem.AppService.deps.json
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\bin\Release\netstandard2.0\BanckAccountSystem.AppService.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\bin\Release\netstandard2.0\BanckAccountSystem.AppService.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\bin\Release\netstandard2.0\BanckAccountSystem.Model.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\bin\Release\netstandard2.0\BanckAccountSystem.Repository.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\bin\Release\netstandard2.0\BanckAccountSystem.Repository.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\bin\Release\netstandard2.0\BanckAccountSystem.Model.pdb
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\obj\Release\netstandard2.0\BanckAccountSystem.AppService.csprojAssemblyReference.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\obj\Release\netstandard2.0\BanckAccountSystem.AppService.AssemblyInfoInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\obj\Release\netstandard2.0\BanckAccountSystem.AppService.AssemblyInfo.cs
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\obj\Release\netstandard2.0\BanckAccountSystem.AppService.csproj.CoreCompileInputs.cache
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\obj\Release\netstandard2.0\BanckAccountSystem.AppService.csproj.CopyComplete
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\obj\Release\netstandard2.0\BanckAccountSystem.AppService.dll
+D:\Master\Napredne Web Tehnologije\ISPIT\NWT-Zakazivanje\Project3_DDD\BanckAccountSystem.AppService\obj\Release\netstandard2.0\BanckAccountSystem.AppService.pdb
