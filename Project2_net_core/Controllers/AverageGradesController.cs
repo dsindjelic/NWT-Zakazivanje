@@ -23,7 +23,7 @@ namespace NWT_2.Controllers
         {
             _logger = logger;
         }
-
+        //https://localhost:44315/averagegrades?no=1
         [HttpGet]
         public IEnumerable<GradesEF> Get(string no)
         {

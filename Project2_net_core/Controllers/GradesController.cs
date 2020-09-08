@@ -43,7 +43,7 @@ namespace NWT_2.Controllers
         {
             _logger = logger;
         }
-
+        //https://localhost:44315/grades?filename=dnevnik.csv
         [HttpGet]
         public IEnumerable<Grades> Get(string? filename)
         {
@@ -51,7 +51,7 @@ namespace NWT_2.Controllers
             var _gradesService = new GradesService();
             var path = "wwwroot/"+filename;
             
-            //Here We are calling function to read CSV file
+            //pozivamo  funkciju koja cita  CSV fajl
             if (System.IO.File.Exists(path))
             {
                  var resultData = _gradesService.ReadCSVFile(path);
@@ -70,19 +70,18 @@ namespace NWT_2.Controllers
                 }
 
             }
-            //Create  objects of the Grades class
+            //Kreiramo   objekat  Grades klase
             foreach (Grades result in resultData)
             {     
                 tempi = result.serb + result.math + result.phys + result.chem + result.bio+ result.rule;
                 result.averageGrade = tempi / 6F;
 
-                //Here We are calling function to write result object
+                //Pozivamo funkciju za upisivanje rezultata
                 WriteToDatabase(i, result);
                 i++;
             }             
-            //Here is the Folder name, and CSV File name will be "average.csv" , service to write in the csv file          
-            _gradesService.WriteCSVFile("wwwroot/average.csv", resultData);
-                
+            //definisanje  CSV File name   "average.csv", u koji ce biti izvrsen upis u csv file          
+            _gradesService.WriteCSVFile("wwwroot/average.csv", resultData);             
            
             return resultData;
             }
